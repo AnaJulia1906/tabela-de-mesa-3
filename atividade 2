@@ -1,6 +1,8 @@
 using System;
 class Program
 {
+    private static Investimento investimento;
+
     static void Main(string[] args)
     {
         int meses = 8;
@@ -11,10 +13,31 @@ class Program
         Console.WriteLine("-------------------------------------------------------");
         for (int i = 0; i < valoresInvestidos.Length; i++)
         {
-            Investimento investimento = new Investimento(valoresInvestidos[i], taxasJuros[i], meses, dias);
+             investimento = new Investimento(valoresInvestidos[i], taxasJuros[i], meses, dias);
             double rendimentoFuturo = investimento.CalcularRendimentoFuturo();
             Console.WriteLine($"R$ {valoresInvestidos[i]:F2}\t{taxasJuros[i]:F2}%\t           {meses}\t\tR$ {rendimentoFuturo:F2}");
             Console.ReadLine();
         }
+    }
+}
+
+internal class Investimento
+{
+    private double v1;
+    private double v2;
+    private int meses;
+    private double dias;
+
+    public Investimento(double v1, double v2, int meses, double dias)
+    {
+        this.v1 = v1;
+        this.v2 = v2;
+        this.meses = meses;
+        this.dias = dias;
+    }
+
+    internal double CalcularRendimentoFuturo()
+    {
+        throw new NotImplementedException();
     }
 }
